@@ -21,7 +21,7 @@ Database: https://github.com/justcallmebeef/movie-database
 
 ### ERD 
 
-![Movie ERD](/blob/master/src/assets/movie-erd.png)
+![Movie ERD](/src/assets/movie-erd.png)
 
 ## Author
 
