@@ -124,4 +124,15 @@ ul.topnav li.right {float: right;}
 /* Movies  */
 li {
   display: inline-block;
+  margin: 10px; 
+}
+
+#descriptions {
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button {
+  width: 50%;
 }
