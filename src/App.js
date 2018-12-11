@@ -29,7 +29,6 @@ class App extends Component {
       method: 'DELETE', 
     })
     .then(() => this.loadMovies())
-  
   }
 
   // getMovies = () => {
