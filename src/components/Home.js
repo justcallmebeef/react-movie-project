@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import Header from './Header'
 
 const Home = () => {
     return (
         <Fragment>
+        <Header />
         <div className="homeBackground">
-        <div className="wordButtonContainer">
-        <h1 className="bmovies">Bethany's Movie Ratings</h1>
-        <button className="checkOutMovies"><span id="planbutton"><Link to='/movies'>Go To Movies</Link></span></button>
-        </div>
+        <h1>Bethany's Movie Ratings</h1>
         </div>
         </Fragment>
     )
