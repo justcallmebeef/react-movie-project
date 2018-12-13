@@ -11,7 +11,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      movies: [], 
+      movies: [],
     }
   }
 
@@ -32,12 +32,41 @@ class App extends Component {
     .then(() => this.loadMovies())
   }
 
+  handleInput = (event) => {
+    const { value, name } = event.target
+    this.setState({
+      [name]: value
+    })
+  }
+
+  postMovie = () => {
+    let post = {
+      title: this.state.title, 
+      director: this.state.director, 
+      year: this.state.year, 
+      rating: this.state.rating 
+    }
+    fetch(movieAPI, {
+      method: 'POST', 
+      body: JSON.stringify(post), 
+      headers: {
+        'Content-Type': 'application/json', 
+      }
+    })
+    .then (newMovie => newMovie.json())
+    .then((newMovie) => {
+      this.setState({
+        data: [...this.state.movies, newMovie]
+      })
+    })
+  }
+
   render() {
     return (
       <div className="App">
       <Route path='/' exact component={Home}/>
       <Route path='/movies' render={() => (<Movies deleteMovie={this.deleteMovie} movies={this.state.movies} />)}/>
-      <Route path='/create' render={() => (<NewMovie />)} />
+      <Route path='/create' render={() => (<NewMovie postMovie={this.postMovie} handleInput={this.handleInput} />)} />
       </div>
     );
   }
