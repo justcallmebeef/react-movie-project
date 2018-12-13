@@ -37,3 +37,7 @@ li {
   font-size: 20px;
   font-weight: bold;
 }
+
+form {
+  margin: 2em;
+}
