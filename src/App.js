@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 import Home from './components/Home'
 import Movies from './components/Movies'
 import NewMovie from './components/NewMovie'
+import UpdateMovie from './components/UpdateMovie'
 import './App.css';
 
 const movieAPI = "https://movie-db-project.herokuapp.com/"
@@ -67,6 +68,7 @@ class App extends Component {
       <Route path='/' exact component={Home}/>
       <Route path='/movies' render={() => (<Movies deleteMovie={this.deleteMovie} movies={this.state.movies} />)}/>
       <Route path='/create' render={() => (<NewMovie postMovie={this.postMovie} handleInput={this.handleInput} />)} />
+      <Route path='/update' render={() => (<UpdateMovie />)} />
       </div>
     );
   }

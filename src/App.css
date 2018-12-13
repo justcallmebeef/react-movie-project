@@ -28,7 +28,7 @@ form {
   margin: 2em;
 }
 
-button {
+.btn {
   margin: .2em;
   width: auto; 
   height: 50px;
