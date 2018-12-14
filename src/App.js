@@ -67,7 +67,22 @@ class App extends Component {
   }
 
   updateMovie = () => {
-
+    let update = {
+      title: this.state.title, 
+      director: this.state.director, 
+      year: this.state.year, 
+      rating: this.state.rating 
+    }
+    fetch(`${movieAPI}${this.state.movieSelected}`, {
+      method: 'PUT', 
+      body: JSON.stringify(update), 
+      headers: {
+        'Content-Type': 'application/json', 
+      }
+    })
+    .then(updateMovie => updateMovie.json())
+    .then(() => this.loadMovies())
+    .then(alert('You updated the movie! Keep updating or return to Movie List'))
   }
 
 
@@ -77,7 +92,7 @@ class App extends Component {
       <Route path='/' exact component={Home}/>
       <Route path='/movies' render={() => (<Movies deleteMovie={this.deleteMovie} movies={this.state.movies} getIdForUpdate={this.getIdForUpdate}/>)}/>
       <Route path='/create' render={() => (<NewMovie postMovie={this.postMovie} handleInput={this.handleInput} />)} />
-      <Route path='/update' render={() => (<UpdateMovie movies={this.state.movies} movieSelected={this.state.movieSelected} />)} />
+      <Route path='/update' render={() => (<UpdateMovie movies={this.state.movies} handleInput={this.handleInput} movieSelected={this.state.movieSelected} updateMovie={this.updateMovie} />)} />
       </div>
     );
   }

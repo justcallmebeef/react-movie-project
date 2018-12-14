@@ -26,7 +26,7 @@ const UpdateMovie = (props) => {
                     <label for="validationServer02">Rating</label>
                     <input type="text" className="form-control" defaultValue={movies.rating} name="rating" onChange={props.handleInput} required></input>
                 </div>
-                <button type="button" class="btn btn-info" >
+                <button type="button" class="btn btn-info" onClick={props.updateMovie}>
                     Update Movie
                 </button>
                 <Link to='/movies'><button type="button" class="btn btn-info" >
