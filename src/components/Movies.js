@@ -1,16 +1,20 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-import Header from './Header'
+import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
+import Header from "./Header"
 
 const Movies = (props) => {
     let movieList = props.movies.map(movie => {
         return (
             <Fragment>
-                <ul className="list-group">
-                    <li className="list-group-item d-flex justify-content-between align-items-center">
-                        <p>{movie.title}</p><p>{movie.director}</p><p>{movie.year}</p><p>{movie.rating}</p><p><button onClick={props.deleteMovie} id={movie.id}>Delete Movie</button></p>
-                    <Link to={`/update/${movie.id}`}><p><button id={movie.id} onClick={props.getIdForUpdate}>Edit</button></p></Link>
-                    </li>
+                <ul className="list-group-item d-flex justify-content-between">
+                    <li>{movie.title}</li>
+                    <li>{movie.director}</li>
+                    <li>{movie.year}</li>
+                    <li>{movie.rating}</li>
+                    <div>
+                        <button onClick={props.deleteMovie} id={movie.id}>Delete Movie</button>
+                        <Link to={`/update/${movie.id}`}><button id={movie.id} onClick={props.getIdForUpdate}>Edit</button></Link>
+                    </div>
                 </ul>
             </Fragment>
         )
@@ -18,14 +22,14 @@ const Movies = (props) => {
     return (
         <Fragment>
             <Header />
-            <div className='movieBackground'>
-            <ul className="list-group">
-                    <li id="descriptions" className="list-group-item d-flex justify-content-between align-items-center">
-                        <p>Title</p><p>Director</p><p>Year</p><p>Rating</p><p>Edit/Delete</p>
-                    </li>
+                <ul className="list-group-item d-flex justify-content-between">
+                    <li id="descriptions">Title</li>
+                    <li id="descriptions">Director</li>
+                    <li id="descriptions">Year</li>
+                    <li id="descriptions">Rating</li>
+                    <li id="descriptions">Edit/Delete</li>
                 </ul>
             { movieList }
-            </div>
         </Fragment>
     )
 }

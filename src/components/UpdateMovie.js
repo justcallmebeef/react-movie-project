@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react'
-import { Link } from 'react-router-dom'
-import Header from './Header'
+import React, { Fragment } from "react"
+import { Link } from "react-router-dom"
+import Header from "./Header"
 
 const UpdateMovie = (props) => {
     var [movies] = props.movies.filter(movie => {
@@ -29,7 +29,7 @@ const UpdateMovie = (props) => {
                 <button type="button" class="btn btn-info" onClick={props.updateMovie}>
                     Update Movie
                 </button>
-                <Link to='/movies'><button type="button" class="btn btn-info" >
+                <Link to="/movies"><button type="button" class="btn btn-info" >
                     Back to Movies List
                 </button></Link>  
             </div>
