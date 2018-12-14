@@ -9,7 +9,7 @@ const Movies = (props) => {
                 <ul className="list-group">
                     <li className="list-group-item d-flex justify-content-between align-items-center">
                         <p>{movie.title}</p><p>{movie.director}</p><p>{movie.year}</p><p>{movie.rating}</p><p><button onClick={props.deleteMovie} id={movie.id}>Delete Movie</button></p>
-                    <Link to='/update'><p><button>Edit</button></p></Link>
+                    <Link to={`/update/${movie.id}`}><p><button id={movie.id} onClick={props.getIdForUpdate}>Edit</button></p></Link>
                     </li>
                 </ul>
             </Fragment>

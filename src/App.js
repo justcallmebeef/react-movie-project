@@ -13,6 +13,7 @@ class App extends Component {
     super()
     this.state = {
       movies: [],
+      movieSelected: '', 
     }
   }
 
@@ -55,20 +56,28 @@ class App extends Component {
       }
     })
     .then (newMovie => newMovie.json())
-    .then((newMovie) => {
-      this.setState({
-        data: [...this.state.movies, newMovie]
-      })
+    .then(this.loadMovies)
+    .then(alert('You added a Movie! Add another or return to Movie List'))
+  }
+
+  getIdForUpdate = (event) => {
+    this.setState({
+      movieSelected: event.target.id
     })
   }
+
+  updateMovie = () => {
+
+  }
+
 
   render() {
     return (
       <div className="App">
       <Route path='/' exact component={Home}/>
-      <Route path='/movies' render={() => (<Movies deleteMovie={this.deleteMovie} movies={this.state.movies} />)}/>
+      <Route path='/movies' render={() => (<Movies deleteMovie={this.deleteMovie} movies={this.state.movies} getIdForUpdate={this.getIdForUpdate}/>)}/>
       <Route path='/create' render={() => (<NewMovie postMovie={this.postMovie} handleInput={this.handleInput} />)} />
-      <Route path='/update' render={() => (<UpdateMovie />)} />
+      <Route path='/update' render={() => (<UpdateMovie movies={this.state.movies} movieSelected={this.state.movieSelected} />)} />
       </div>
     );
   }
