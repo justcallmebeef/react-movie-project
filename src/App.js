@@ -57,7 +57,7 @@ class App extends Component {
     })
     .then (newMovie => newMovie.json())
     .then(this.loadMovies)
-    .then(alert('You added a Movie! Add another or return to Movie List'))
+    .then(alert('You added a Movie! Add another or return to Movies List'))
   }
 
   getIdForUpdate = (event) => {
@@ -82,7 +82,7 @@ class App extends Component {
     })
     .then(updateMovie => updateMovie.json())
     .then(() => this.loadMovies())
-    .then(alert('You updated the movie! Keep updating or return to Movie List'))
+    .then(alert('You updated the movie! Keep updating or return to Movies List'))
   }
 
 
